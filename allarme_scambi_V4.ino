@@ -56,7 +56,7 @@ void loop() {
     timer = 0; // resetto timer per resettare il ciclo di ritardo se non c'è più lettura di valore maggiore di 0.5
   }    
     if (timer == 5) {
-      digitalWrite(6, HIGH); // stacco relè di tensione scambi se conteggio timer raggiunge 10
+      digitalWrite(6, HIGH); // stacco relè di tensione scambi se conteggio timer raggiunge 5 (equivale a 2,5 secondi)
       digitalWrite(LED_BUILTIN, HIGH); // accendo led rosso built_in
       digitalWrite(7, HIGH); // attivo buzzer
       delay(5000);
