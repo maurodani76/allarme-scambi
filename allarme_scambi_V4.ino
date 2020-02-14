@@ -1,6 +1,6 @@
 /* Codice per allarme tensione scambi bloccata attivata
  *  e conseguente frittura dell'elettrocalamita
- * Utilizza sensore assorbimento corrente xxxx
+ * Utilizza sensore assorbimento corrente ACS712 da 5 ampere
  * Utilizza un pezzo di codice trovato su youtube per eseguire un ciclo di misura della corrente in AC
  */
  
@@ -16,14 +16,14 @@ const int adc_zero = 516;
 
 void setup() {
   // Serial.begin(9600);
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT); // uscita relè
+  pinMode(7, OUTPUT); // uscita buzzer
   pinMode(LED_BUILTIN, OUTPUT);
 
   timer = 0; // azzero variabile
   ciclo = 0; // azzero variabile
   
-  // prova allarme e relè
+  // prova relè e allarme
   
   delay(3000);
   digitalWrite(6, HIGH);
