@@ -49,15 +49,16 @@ void loop() {
   delay(300);
   if ( current > 0.5 ) {
     timer++; // aumento conteggio di 1 ad ogni ciclo finchè c'è lettura maggiore di 0.5
+    digitalWrite(LED_BUILTIN, HIGH); // accendo led rosso built_in
     delay(200);
     // Serial.println(timer);
   }
     else {
     timer = 0; // resetto timer per resettare il ciclo di ritardo se non c'è più lettura di valore maggiore di 0.5
+    digitalWrite(LED_BUILTIN, LOW); // spengo led rosso built_in
   }    
     if (timer == 5) {
       digitalWrite(6, HIGH); // stacco relè di tensione scambi se conteggio timer raggiunge 5 (equivale a 2,5 secondi)
-      digitalWrite(LED_BUILTIN, HIGH); // accendo led rosso built_in
       digitalWrite(7, HIGH); // attivo buzzer
       delay(5000);
       digitalWrite(7, LOW); // disattivo buzzer
